@@ -1,0 +1,1 @@
+module.exports.sentence = 'Hola mundo!'
