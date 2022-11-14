@@ -4,7 +4,7 @@ const getPeople = (req,res)=>{
     res.status(200).json({success:true,data:people })
 }
 
-const postPeople = (req,res)=>{
+const createPerson = (req,res)=>{
     const {name} = req.body
     if(!name){
         return res.status(400).json({success:false,msg:'please provide name value'})
@@ -12,7 +12,7 @@ const postPeople = (req,res)=>{
     res.status(201).json({success:true, person:name})
 }
 
-const postPeoplePostman = (req,res)=>{
+const createPersonPostman = (req,res)=>{
     const {name} = req.body
     if(!name){
         return res.status(400).json({success:false,msg:'please provide name value'})
@@ -20,7 +20,7 @@ const postPeoplePostman = (req,res)=>{
     res.status(201).json({success:true, data:[...people,name]})
 }
 
-const putPeople =(req,res) =>{
+const updatePerson =(req,res) =>{
     const {id} = req.params
     const {name} = req.body
     const person = people.find(person => person.id ===Number(id))
@@ -38,7 +38,7 @@ const putPeople =(req,res) =>{
     res.status(200).json({success:true, data: newPeople})
 }
 
-const deletePeople = (req,res) =>{
+const deletePerson = (req,res) =>{
     const {id} = req.params
 
     const person = people.find(person => person.id ===Number(id))
@@ -53,8 +53,8 @@ const deletePeople = (req,res) =>{
 
 module.exports = {
     getPeople,
-    postPeople,
-    postPeoplePostman,
-    putPeople,
-    deletePeople
+    createPerson,
+    createPersonPostman,
+    updatePerson,
+    deletePerson
 }
