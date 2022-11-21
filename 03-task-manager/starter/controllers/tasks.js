@@ -5,7 +5,7 @@ const getAllTasks = (req,res) =>{
     res.send('Todos los Items')
 }
 
-const CreateTask = async (req,res) =>{
+const createTask = async (req,res) =>{
     const task = await Task.create(req.body)
     res.status(201).json({task})
 }
@@ -24,7 +24,7 @@ const deleteTask = (req,res) =>{
 
 module.exports = {
     getAllTasks,
-    CreateTask,
+    createTask,
     getTask,
     updateTask,
     deleteTask
